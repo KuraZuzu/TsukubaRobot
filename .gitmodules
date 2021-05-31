@@ -1,0 +1,3 @@
+[submodule "Src/MSLH"]
+	path = Src/MSLH
+	url = https://github.com/KuraZuzu/MSLH.git
