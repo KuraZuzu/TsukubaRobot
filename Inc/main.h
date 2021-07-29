@@ -37,7 +37,6 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
@@ -54,7 +53,7 @@ extern "C" {
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
-
+extern void motor_test();
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
@@ -66,6 +65,8 @@ void Error_Handler(void);
 #define USART_RX_GPIO_Port GPIOA
 #define LD2_Pin GPIO_PIN_5
 #define LD2_GPIO_Port GPIOA
+#define Motor1_Phase_Pin GPIO_PIN_6
+#define Motor1_Phase_GPIO_Port GPIOA
 #define Motor1_PWM_Pin GPIO_PIN_8
 #define Motor1_PWM_GPIO_Port GPIOA
 #define Motor2_PWM_Pin GPIO_PIN_9

@@ -51,7 +51,7 @@ include_directories(Inc Drivers/STM32F4xx_HAL_Driver/Inc Drivers/STM32F4xx_HAL_D
 # -- add original
 #list(REMOVE_ITEM Inc "analog_in_dma_stream.c")
 add_definitions(-DARM_MATH_CM4 -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -D__FPU_PRESENT=1)
-file(GLOB_RECURSE MY_SRC Src/MSLH/wheel_control.cpp Src/MSLH/encoder.cpp Src/MSLH/motor.cpp)
+file(GLOB_RECURSE MY_SRC Src/MSLH/wheel_control.cpp Src/MSLH/encoder.cpp Src/MSLH/motor.cpp Src/EFPMachineControl/application.cpp)
 # --
 
 add_definitions(-DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx)

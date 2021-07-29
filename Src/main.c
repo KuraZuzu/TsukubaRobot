@@ -56,19 +56,22 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+int main() {
+    HAL_Init(); //< Setup HAL.
+    SystemClock_Config();  //< Micro-controller startup functions
+    motor_test();
+    while(1) {
+        HAL_GPIO_TogglePin(GPIOA, LD2_Pin);
+        HAL_Delay(500);
+    }
+    return 0;
+}
 /* USER CODE END 0 */
 
 /**
-  * @brief  The application entry point.g
+  * @brief  The application entry point.
   * @retval int
   */
-  int main (){
-    while (1){
-    }
-
-    return 0;
-  }
 
 /**
   * @brief System Clock Configuration
