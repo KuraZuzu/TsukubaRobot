@@ -25,7 +25,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "math.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -62,7 +62,7 @@ int main() {
     motor_test();
     while(1) {
         HAL_GPIO_TogglePin(GPIOA, LD2_Pin);
-        HAL_Delay(500);
+        HAL_Delay(1000);
     }
     return 0;
 }

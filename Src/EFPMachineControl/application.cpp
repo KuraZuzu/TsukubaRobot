@@ -23,7 +23,16 @@ extern "C" {
         mslh::Motor _l_motor(htim1, TIM_CHANNEL_1, GPIOA, GPIO_PIN_6, true);
 
         _l_motor.start();
-        _l_motor.update(0.5);
+        _l_motor.update(0.0);
+        HAL_Delay(5000);
+        double speed = 0.2;
+        while(1) {
+            _l_motor.update(speed);
+            HAL_Delay(3000);
+            _l_motor.update(0.0);
+            HAL_Delay(500);
+            speed *= -2;
+        }
     }
 
 //// ここ(グローバルスコープ内)でインスタンスを生成するとコンストラクタが呼ばれないので注意。
