@@ -11,11 +11,29 @@
 #define TSUKUBAROBOT_APPLICATION_H
 
 #include "../MSLH/motor.h"
+#include "../MSLH/encoder.h"
 #include "stm32f4xx_it.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+    void encoder_test() {
+        MX_GPIO_Init();
+        MX_TIM3_Init();
+        MX_TIM4_Init();
+
+        mslh::Encoder _encoder_1(htim3, 500, true);
+        mslh::Encoder _encoder_2(htim4, 500, false);
+
+        while (1) {
+            _encoder_1.update();
+            _encoder_2.update();
+            printf("1: %6d , 2: %6d", _encoder_1.getTotalPulse(), _encoder_2.getTotalPulse());
+            HAL_Delay(10);
+        }
+
+    }
 
     void motor_test() {
         MX_GPIO_Init();
