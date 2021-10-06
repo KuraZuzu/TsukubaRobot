@@ -85,7 +85,7 @@ $RECYCLE.BIN/
 # Compiled Static libraries
 *.lai
 *.la
-*.a
+#*.a
 *.lib
 
 # Executables
@@ -250,7 +250,7 @@ fabric.properties
 *.lai
 *.la
 *.a
-*.lib
+#*.lib
 
 # Executables
 *.exe
