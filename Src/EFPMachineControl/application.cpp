@@ -22,14 +22,25 @@ extern "C" {
         MX_GPIO_Init();
         MX_TIM3_Init();
         MX_TIM4_Init();
+        MX_USART2_UART_Init();
 
-        mslh::Encoder _encoder_1(htim3, 500, true);
-        mslh::Encoder _encoder_2(htim4, 500, false);
-
+        mslh::Encoder _encoder_1(htim3, 500*2*6*23, true);
+        mslh::Encoder _encoder_2(htim4, 500*2*6*23, false);
+        _encoder_1.start();
+        _encoder_2.start();
+        _encoder_1.reset();
+        _encoder_2.reset();
         while (1) {
             _encoder_1.update();
             _encoder_2.update();
-            printf("1: %6d , 2: %6d", _encoder_1.getTotalPulse(), _encoder_2.getTotalPulse());
+//            printf("1: [回転数]%d   [パルス]%lld , 2: [回転数]%d  [パルス]%lld\r\n",_encoder_1.getRotationCount(), _encoder_1.getTotalPulse(), _encoder_2.getRotationCount(),  _encoder_2.getTotalPulse());
+            printf("LT:%d  LC:%d  LD:%d    RT:%d  RC:%d  RD:%d\r\n"
+                    , static_cast<int>(_encoder_1.getTotalPulse())
+                    , static_cast<int>(_encoder_1.getRotationCount())
+                    , static_cast<int>(_encoder_1.getDeltaPulse())
+                    , static_cast<int>(_encoder_2.getTotalPulse())
+                    , static_cast<int>(_encoder_2.getRotationCount())
+                    , static_cast<int>(_encoder_2.getDeltaPulse()) );
             HAL_Delay(10);
         }
 
@@ -38,16 +49,23 @@ extern "C" {
     void motor_test() {
         MX_GPIO_Init();
         MX_TIM1_Init();
-        mslh::Motor _l_motor(htim1, TIM_CHANNEL_1, GPIOA, GPIO_PIN_6, true);
+        mslh::Motor _motor_1(htim1, TIM_CHANNEL_1, GPIOC, GPIO_PIN_0, false);
+        mslh::Motor _motor_2(htim1, TIM_CHANNEL_1, GPIOC, GPIO_PIN_3, false);
 
-        _l_motor.start();
-        _l_motor.update(0.0);
+        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_PIN_RESET);
+        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_PIN_RESET);
+        _motor_1.start();
+        _motor_2.start();
+        _motor_1.update(0.0);
+        _motor_2.update(0.0);
         HAL_Delay(5000);
         double speed = 0.2;
         while(1) {
-            _l_motor.update(speed);
+            _motor_1.update(speed);
+            _motor_2.update(speed);
             HAL_Delay(3000);
-            _l_motor.update(0.0);
+            _motor_1.update(0.0);
+            _motor_2.update(0.0);
             HAL_Delay(500);
             speed *= -2;
         }
