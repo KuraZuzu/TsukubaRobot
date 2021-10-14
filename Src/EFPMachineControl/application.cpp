@@ -18,14 +18,16 @@
 extern "C" {
 #endif
 
-    void encoder_test() {
+//    void measureSpeedTest()
+
+    void encoderTest() {
         MX_GPIO_Init();
         MX_TIM3_Init();
         MX_TIM4_Init();
         MX_USART2_UART_Init();
 
-        mslh::Encoder _encoder_1(htim3, 500*2*6*23, true);
-        mslh::Encoder _encoder_2(htim4, 500*2*6*23, false);
+        mslh::Encoder _encoder_1(htim3, 500*6*23, true);
+        mslh::Encoder _encoder_2(htim4, 500*6*23, false);
         _encoder_1.start();
         _encoder_2.start();
         _encoder_1.reset();
@@ -46,11 +48,11 @@ extern "C" {
 
     }
 
-    void motor_test() {
+    void motorTest() {
         MX_GPIO_Init();
         MX_TIM1_Init();
         mslh::Motor _motor_1(htim1, TIM_CHANNEL_1, GPIOC, GPIO_PIN_0, false);
-        mslh::Motor _motor_2(htim1, TIM_CHANNEL_1, GPIOC, GPIO_PIN_3, false);
+        mslh::Motor _motor_2(htim1, TIM_CHANNEL_1, GPIOC, GPIO_PIN_3, true);
 
         HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_PIN_RESET);
         HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_PIN_RESET);
@@ -72,17 +74,6 @@ extern "C" {
     }
 
 //// ここ(グローバルスコープ内)でインスタンスを生成するとコンストラクタが呼ばれないので注意。
-//void test_myself_wait_led() {
-//    MX_GPIO_Init();
-//    MX_TIM6_Init();
-//    while (1) {
-////        printf("%d\r\n", my_timer::time_us_count);
-//        my_timer::wait_us(1000000);
-////        HAL_Delay(1000);
-//        HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_3);
-//    }
-//}
-
 
 
 

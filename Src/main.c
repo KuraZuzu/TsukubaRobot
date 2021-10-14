@@ -72,8 +72,9 @@ int main(){
     MX_TIM4_Init();
     MX_USART2_UART_Init();
 
-    motor_test();
-    encoder_test();
+//    motorTest();
+    encoderTest();
+
     while(1) {
 
         HAL_GPIO_TogglePin(GPIOA, LD2_Pin);
