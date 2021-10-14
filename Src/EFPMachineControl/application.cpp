@@ -18,7 +18,7 @@
 extern "C" {
 #endif
 
-    Test machine_test;
+    Test machine_test; //このままではコンストラクタも動かないし危険
 
     void encoderTest() {
         MX_GPIO_Init();
