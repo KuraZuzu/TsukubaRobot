@@ -52,7 +52,7 @@ extern "C" {
         MX_GPIO_Init();
         MX_TIM1_Init();
         mslh::Motor _motor_1(htim1, TIM_CHANNEL_1, GPIOC, GPIO_PIN_0, false);
-        mslh::Motor _motor_2(htim1, TIM_CHANNEL_1, GPIOC, GPIO_PIN_3, true);
+        mslh::Motor _motor_2(htim1, TIM_CHANNEL_2, GPIOC, GPIO_PIN_3, true);
 
         HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_PIN_RESET);
         HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_PIN_RESET);
