@@ -12,13 +12,13 @@
 
 #include "../MSLH/motor.h"
 #include "../MSLH/encoder.h"
-#include "stm32f4xx_it.h"
+#include "Test.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-//    void measureSpeedTest()
+    Test machine_test;
 
     void encoderTest() {
         MX_GPIO_Init();

@@ -56,7 +56,7 @@ file(GLOB_RECURSE MY_SRC
         Src/MSLH/encoder.cpp
         Src/MSLH/motor.cpp
         Src/EFPMachineControl/application.cpp
-        Src/EFPMachineControl/Test.cpp
+        Src/EFPMachineControl/test.cpp
         Src/EFPMachineControl/callback.cpp)
 # --
 

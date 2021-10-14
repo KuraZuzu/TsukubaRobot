@@ -10,6 +10,9 @@
 #include "../MSLH/defines.h"
 #include "stm32f4xx.h"
 #include "test.h"
+#include "main.h"
+
+extern Test machine_test;
 
 // タイマーコールバック
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
@@ -21,5 +24,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
      *     1000 [Hz] = 1 m[sec]
      */
     if(htim == &htim6) {
+//        Test::measureSpeedCallback();
+        machine_test.measureSpeedCallback();
     }
 }
