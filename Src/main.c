@@ -66,20 +66,13 @@ int main(){
     setbuf(stdout, NULL);   //< This is needed for printf().
 
     // Init functions.
-    MX_GPIO_Init();
-    MX_TIM1_Init();
-//    MX_TIM3_Init();
-//    MX_TIM4_Init();
-//    MX_USART2_UART_Init();
-
-//    measureSpeed();
+    measureSpeed();
 //    motorTest();
-    encoderTest();
+//    encoderTest();
 
     while(1) {
-
-        HAL_GPIO_TogglePin(GPIOA, LD2_Pin);
-        HAL_Delay(500);
+//        HAL_GPIO_TogglePin(GPIOA, LD2_Pin);
+//        HAL_Delay(500);
     }
 
     return 0;

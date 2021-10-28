@@ -21,17 +21,35 @@ extern "C" {
 //    Test machine_test; //このままではコンストラクタも動かないし危険
 
     void measureSpeed() {
-        MX_GPIO_Init();
         MX_TIM3_Init();
         MX_TIM4_Init();
         MX_GPIO_Init();
         MX_USART2_UART_Init();
         MX_TIM6_Init();
+        Test wheel;
+
+        HAL_TIM_Base_Start_IT(&htim6);
         while(1) {
-            printf("%d [mm/s]\r\n",test_wheel.getSpeed());
+            printf("%d [mm/s]\r\n",wheel.getSpeed());
             HAL_Delay(10);
         }
     }
+
+//    void measureSpeed() {
+//        MX_TIM3_Init();
+//        MX_TIM4_Init();
+//        MX_GPIO_Init();
+//        MX_USART2_UART_Init();
+//        MX_TIM6_Init();
+//
+//        static Test test_wheel(mslh::WheelControl(mslh::Motor(htim1, TIM_CHANNEL_1, GPIOC, GPIO_PIN_0, false), mslh::Encoder(htim3, 500*6*23, true), 3000, 1), mslh::WheelControl(mslh::Motor(htim1, TIM_CHANNEL_2, GPIOC, GPIO_PIN_3, true), mslh::Encoder(htim4, 500*6*23, false), 3000, 1));
+//
+//        HAL_TIM_Base_Start_IT(&htim6);
+//        while(1) {
+//            printf("%d [mm/s]\r\n",test_wheel.getSpeed());
+//            HAL_Delay(10);
+//        }
+//    }
 
     void encoderTest() {
         MX_GPIO_Init();

@@ -23,5 +23,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
      */
     if(htim == &htim6) {
 //        test_wheel.measureSpeedCallback();
+        Test::measureSpeedCallback();
     }
 }
