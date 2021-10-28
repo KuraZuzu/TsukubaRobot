@@ -12,7 +12,16 @@
 
 #include "../MSLH/wheel_control.h"
 
-// モーターの直径代入して
+/**
+ * @brief
+ *   Declare this class as static in the global scope.
+ *   You can then call Test::measureSpeedCallback() in the callback function to measure the speed.
+ *
+ * Example:
+ * @code
+
+ * @endcode
+ */
 class Test {
 public:
 
