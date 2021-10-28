@@ -66,6 +66,12 @@ int main(){
     setbuf(stdout, NULL);   //< This is needed for printf().
 
     // Init functions.
+    MX_TIM3_Init();
+    MX_TIM4_Init();
+    MX_GPIO_Init();
+    MX_USART2_UART_Init();
+    MX_TIM6_Init();
+
     measureSpeed();
 //    motorTest();
 //    encoderTest();

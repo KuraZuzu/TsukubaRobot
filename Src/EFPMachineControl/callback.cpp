@@ -22,7 +22,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
      *     1000 [Hz] = 1 m[sec]
      */
     if(htim == &htim6) {
-//        test_wheel.measureSpeedCallback();
-        Test::measureSpeedCallback();
+        test_wheel.measureSpeedCallback();
     }
 }
