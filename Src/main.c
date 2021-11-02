@@ -72,6 +72,7 @@ int main(){
     MX_USART2_UART_Init();
     MX_TIM6_Init();
 
+
     measureSpeed();
 //    motorTest();
 //    encoderTest();
