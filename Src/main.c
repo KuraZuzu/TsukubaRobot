@@ -72,14 +72,16 @@ int main(){
     MX_USART2_UART_Init();
     MX_TIM6_Init();
 
-
-    measureSpeed();
+    measureSpeedStaticTest();
+//    measureSpeedSafeModeTest();
+//    measureSpeedTest();
 //    motorTest();
 //    encoderTest();
 
     while(1) {
-//        HAL_GPIO_TogglePin(GPIOA, LD2_Pin);
-//        HAL_Delay(500);
+        printf("11\r\n");
+        HAL_GPIO_TogglePin(GPIOA, LD2_Pin);
+        HAL_Delay(500);
     }
 
     return 0;

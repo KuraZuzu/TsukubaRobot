@@ -55,7 +55,9 @@ void Error_Handler(void);
 /* USER CODE BEGIN EFP */
 extern void motorTest();
 extern void encoderTest();
-extern void measureSpeed();
+extern void measureSpeedTest();
+extern void measureSpeedSafeModeTest();
+extern void measureSpeedStaticTest();
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/

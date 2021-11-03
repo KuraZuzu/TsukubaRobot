@@ -11,7 +11,7 @@
 #include "stm32f4xx.h"
 #include "test.h"
 #include "main.h"
-
+extern int32_t wheel_speed;
 // タイマーコールバック
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 
@@ -24,5 +24,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
     if(htim == &htim6) {
 //        test_wheel.measureSpeedCallback();
 //        define_wheel();
+        wheel_speed++;
     }
 }
