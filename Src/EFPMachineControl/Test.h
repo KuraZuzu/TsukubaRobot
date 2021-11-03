@@ -12,9 +12,6 @@
 
 #include "../MSLH/wheel_control.h"
 
-//static int32_t wheel_speed;
-void define_wheel();
-
 /**
  * @brief
  *   Declare this class as static in the global scope.
@@ -39,13 +36,11 @@ public:
         return _speed;
     }
 
-    // !!!!!!!!! なぜかそもそもソースコードが呼ばれない !!!!!!
     // callback関数で呼ばないと動作しない
     inline void measureSpeedCallback() {
         _left_wheel.measureSpeed();
         _right_wheel.measureSpeed();
-//        _speed = ( _left_wheel.getSpeed() + _right_wheel.getSpeed() ) / 2;
-        _speed = _left_wheel.getSpeed() + _right_wheel.getSpeed();
+        _speed = ( _left_wheel.getSpeed() + _right_wheel.getSpeed() ) / 2;
     }
 
     void start() {
@@ -59,13 +54,4 @@ private:
     int32_t _speed; // [mm]/[s]
 };
 
-extern int32_t wheel_speed;
-
-//void define_wheel() {
-//    static Test test_wheel(mslh::WheelControl(mslh::Motor(htim1, TIM_CHANNEL_1, GPIOC, GPIO_PIN_0, false),mslh::Encoder(htim3, 500 * 6 * 23 * 4, true), 300, 1),mslh::WheelControl(mslh::Motor(htim1, TIM_CHANNEL_2, GPIOC, GPIO_PIN_3, true),mslh::Encoder(htim4, 500 * 6 * 23 * 4, false), 300, 1));
-//    test_wheel.measureSpeedCallback();
-//    wheel_speed = test_wheel.getSpeed();
-//}
-
-//static Test test_wheel(mslh::WheelControl(mslh::Motor(htim1, TIM_CHANNEL_1, GPIOC, GPIO_PIN_0, false),mslh::Encoder(htim3, 500 * 6 * 23 * 4, true), 300, 1),mslh::WheelControl(mslh::Motor(htim1, TIM_CHANNEL_2, GPIOC, GPIO_PIN_3, true),mslh::Encoder(htim4, 500 * 6 * 23 * 4, false), 300, 1));
 #endif //TSUKUBAROBOT_TEST_H

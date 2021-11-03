@@ -72,7 +72,8 @@ int main(){
     MX_USART2_UART_Init();
     MX_TIM6_Init();
 
-    measureSpeedStaticTest();
+    measureSpeedTest();
+//    measureSpeedStaticTest();
 //    measureSpeedSafeModeTest();
 //    measureSpeedTest();
 //    motorTest();
