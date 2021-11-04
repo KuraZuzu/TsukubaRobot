@@ -12,7 +12,9 @@
 #include "test.h"
 #include "main.h"
 
-Test test_wheel(mslh::WheelControl(mslh::Motor(htim1, TIM_CHANNEL_1, GPIOC, GPIO_PIN_0, false),mslh::Encoder(htim3, 500 * 6 * 23 * 4, true), 300, 1),mslh::WheelControl(mslh::Motor(htim1, TIM_CHANNEL_2, GPIOC, GPIO_PIN_3, true),mslh::Encoder(htim4, 500 * 6 * 23 * 4, false), 300, 1));
+namespace wheel{
+    Test test_wheel(mslh::WheelControl(mslh::Motor(htim1, TIM_CHANNEL_1, GPIOC, GPIO_PIN_0, false),mslh::Encoder(htim3, 500 * 6 * 23 * 4, true), 300, 1),mslh::WheelControl(mslh::Motor(htim1, TIM_CHANNEL_2, GPIOC, GPIO_PIN_3, true),mslh::Encoder(htim4, 500 * 6 * 23 * 4, false), 300, 1));
+}
 
 /**
  *
@@ -26,6 +28,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
      *     1000 [Hz] = 1 m[sec]
      */
     if(htim == &htim6) {
-        test_wheel.measureSpeedCallback();
+        wheel::test_wheel.measureSpeedCallback();
     }
 }

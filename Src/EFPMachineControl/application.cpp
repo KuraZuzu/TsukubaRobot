@@ -14,7 +14,9 @@
 #include "../MSLH/encoder.h"
 #include "test.h"
 
-extern Test test_wheel;
+namespace wheel{
+    extern Test test_wheel;
+}
 
 #ifdef __cplusplus
 extern "C" {
@@ -29,14 +31,15 @@ extern "C" {
         MX_USART2_UART_Init();
         MX_TIM6_Init();
         HAL_TIM_Base_Start_IT(&htim6);
-        test_wheel.start();
+        wheel::test_wheel.start();
         while(1) {
-            printf("%d [mm/s]\r\n",test_wheel.getSpeed());
+            printf("%d [mm/s]\r\n",wheel::test_wheel.getSpeed());
             HAL_Delay(1);
         }
     }
 
-    void encoderTest() {
+
+void encoderTest() {
         MX_GPIO_Init();
         MX_TIM3_Init();
         MX_TIM4_Init();
