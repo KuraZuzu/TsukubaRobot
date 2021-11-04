@@ -48,6 +48,11 @@ public:
         _right_wheel.start();
     }
 
+    void run(int32_t speed_mm_s, int32_t distance_mm) {
+        _left_wheel.run(speed_mm_s, distance_mm);
+        _right_wheel.run(speed_mm_s, distance_mm);
+    }
+
 private:
     mslh::WheelControl _left_wheel;
     mslh::WheelControl _right_wheel;

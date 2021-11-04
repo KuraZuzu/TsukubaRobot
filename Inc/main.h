@@ -53,7 +53,7 @@ extern "C" {
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
-extern void oneMotorRunTest();
+extern void RunTest();
 extern void motorTest();
 extern void encoderTest();
 extern void measureSpeedTest();

@@ -14,34 +14,31 @@
 #include "../MSLH/encoder.h"
 #include "test.h"
 
-//namespace wheel{
-//    extern Test test_wheel;
-////    extern mslh::WheelControl one_wheel;
-//}
-extern Test test_wheel;
-
+namespace wheel{
+    extern Test test_wheel;
+}
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
     // ここで c++ の自作クラスの変数を宣言しても，言語リンケージの違いによりエラーとなる.
-//    void oneMotorRunTest() {
-//        MX_TIM1_Init();
-//        MX_TIM3_Init();
-//        MX_TIM4_Init();
-//        MX_GPIO_Init();
-////        MX_USART2_UART_Init();
-//        MX_TIM6_Init();
-//        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_PIN_RESET);
-//        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_3, GPIO_PIN_RESET);
-//        HAL_Delay(3000);
-//        HAL_TIM_Base_Start_IT(&htim6);
-//        while(1) {
-//            wheel::one_wheel.run(1000, 3000);
-//            HAL_Delay(3000);
-//        }
-//    }
+    void RunTest() {
+        MX_TIM1_Init();
+        MX_TIM3_Init();
+        MX_TIM4_Init();
+        MX_GPIO_Init();
+//        MX_USART2_UART_Init();
+        MX_TIM6_Init();
+        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_PIN_RESET);
+        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_3, GPIO_PIN_RESET);
+        HAL_Delay(3000);
+        HAL_TIM_Base_Start_IT(&htim6);
+        while(1) {
+            wheel::test_wheel.run(1000, 3000);
+            HAL_Delay(3000);
+        }
+    }
 
     void measureSpeedTest() {
         MX_TIM3_Init();
@@ -50,11 +47,9 @@ extern "C" {
         MX_USART2_UART_Init();
         MX_TIM6_Init();
         HAL_TIM_Base_Start_IT(&htim6);
-//        wheel::test_wheel.start();
-        test_wheel.start();
+        wheel::test_wheel.start();
         while(1) {
-            printf("%d [mm/s]\r\n",test_wheel.getSpeed());
-//            printf("%d [mm/s]\r\n",wheel::test_wheel.getSpeed());
+            printf("%d [mm/s]\r\n",wheel::test_wheel.getSpeed());
         }
     }
 
@@ -97,7 +92,7 @@ void encoderTest() {
         MX_GPIO_Init();
         MX_TIM1_Init();
         mslh::Motor _motor_1(htim1, TIM_CHANNEL_1, GPIOC, GPIO_PIN_0, false);
-        mslh::Motor _motor_2(htim1, TIM_CHANNEL_2, GPIOC, GPIO_PIN_3, true);
+        mslh::Motor _motor_2(htim1, TIM_CHANNEL_2, GPIOC, GPIO_PIN_3, false);
 
         _motor_1.start();
         _motor_2.start();

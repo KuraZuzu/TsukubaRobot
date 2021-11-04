@@ -75,7 +75,7 @@ int main(){
     measureSpeedTest();
 //    motorTest();
 //    encoderTest();
-//    oneMotorRunTest();
+//    RunTest();
 
     while(1) {
         printf("11\r\n");
