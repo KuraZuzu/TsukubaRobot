@@ -73,11 +73,9 @@ int main(){
     MX_TIM6_Init();
 
     measureSpeedTest();
-//    measureSpeedStaticTest();
-//    measureSpeedSafeModeTest();
-//    measureSpeedTest();
 //    motorTest();
 //    encoderTest();
+//    oneMotorRunTest();
 
     while(1) {
         printf("11\r\n");
