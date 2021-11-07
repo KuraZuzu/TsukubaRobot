@@ -32,7 +32,7 @@ public:
     }
 
 
-    inline int32_t getSpeed() const {
+    inline float32_t getSpeed() const {
         return _speed;
     }
 
@@ -48,7 +48,7 @@ public:
         _right_wheel.start();
     }
 
-    void run(int32_t speed_mm_s, int32_t distance_mm) {
+    void run(float32_t speed_mm_s, float32_t distance_mm) {
         _left_wheel.run(speed_mm_s, distance_mm);
         _right_wheel.run(speed_mm_s, distance_mm);
     }
@@ -56,7 +56,7 @@ public:
 private:
     mslh::WheelControl _left_wheel;
     mslh::WheelControl _right_wheel;
-    int32_t _speed; // [mm]/[s]
+    float32_t _speed; // [mm]/[s]
 };
 
 #endif //TSUKUBAROBOT_TEST_H

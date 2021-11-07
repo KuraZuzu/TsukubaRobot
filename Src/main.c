@@ -72,10 +72,10 @@ int main(){
     MX_USART2_UART_Init();
     MX_TIM6_Init();
 
-    measureSpeedTest();
+//    measureSpeedTest();
 //    motorTest();
 //    encoderTest();
-//    RunTest();
+    RunTest();
 
     while(1) {
         printf("11\r\n");

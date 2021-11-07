@@ -32,6 +32,9 @@ extern "C" {
         MX_TIM6_Init();
         HAL_GPIO_WritePin(GPIOC, GPIO_PIN_0, GPIO_PIN_RESET);
         HAL_GPIO_WritePin(GPIOC, GPIO_PIN_3, GPIO_PIN_RESET);
+        wheel::test_wheel.start();
+//        wheel::test_wheel.run(0, 0);
+//        wheel::test_wheel.run(0, 0);
         HAL_Delay(3000);
         HAL_TIM_Base_Start_IT(&htim6);
         while(1) {
