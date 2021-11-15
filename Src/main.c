@@ -70,14 +70,20 @@ int main(){
     MX_TIM3_Init();
     MX_TIM4_Init();
     MX_GPIO_Init();
-    MX_USART2_UART_Init();
+//    MX_USART2_UART_Init();
     MX_TIM6_Init();
 
-    measureSpeedTest();
+//    measureSpeedTest();
 //    motorTest();
 //    encoderTest();
+<<<<<<< HEAD
 //    runTest();
 
+=======
+//    RunTest();
+    setup();
+    loop();
+>>>>>>> main
     while(1) {
         printf("11\r\n");
         HAL_GPIO_TogglePin(GPIOA, LD2_Pin);
