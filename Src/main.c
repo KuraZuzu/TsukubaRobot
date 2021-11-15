@@ -19,6 +19,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "dma.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
@@ -69,14 +70,12 @@ int main(){
     MX_TIM3_Init();
     MX_TIM4_Init();
     MX_GPIO_Init();
-    MX_USART2_UART_Init();
+//    MX_USART2_UART_Init();
     MX_TIM6_Init();
 
-    measureSpeedTest();
+//    measureSpeedTest();
 //    motorTest();
 //    encoderTest();
-//    RunTest();
-    //一旦戻した
 
     while(1) {
         printf("11\r\n");

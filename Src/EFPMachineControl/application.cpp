@@ -23,7 +23,7 @@ extern "C" {
 #endif
 
     // ここで c++ の自作クラスの変数を宣言しても，言語リンケージの違いによりエラーとなる.
-    void RunTest() {
+    void runTest() {
         MX_TIM1_Init();
         MX_TIM3_Init();
         MX_TIM4_Init();
