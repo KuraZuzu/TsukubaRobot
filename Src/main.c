@@ -76,9 +76,14 @@ int main(){
 //    measureSpeedTest();
 //    motorTest();
 //    encoderTest();
+<<<<<<< HEAD
+//    runTest();
+
+=======
 //    RunTest();
     setup();
     loop();
+>>>>>>> main
     while(1) {
         printf("11\r\n");
         HAL_GPIO_TogglePin(GPIOA, LD2_Pin);
