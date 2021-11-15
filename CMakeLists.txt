@@ -62,7 +62,7 @@ file(GLOB_RECURSE MY_SRC
 
 add_definitions(-DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx)
 
-file(GLOB_RECURSE SOURCES "Startup/*.*" "Src/*.c" "Inc/*cpp" "Drivers/*.*" ${MY_SRC})
+file(GLOB_RECURSE SOURCES "Startup/*.*" "Src/*.c" "Drivers/*.*" ${MY_SRC})
 
 set(LINKER_SCRIPT ${CMAKE_SOURCE_DIR}/STM32F446RETX_FLASH.ld)
 
