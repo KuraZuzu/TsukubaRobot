@@ -76,6 +76,7 @@ int main(){
 //    motorTest();
 //    encoderTest();
 //    RunTest();
+    //一旦戻した
 
     while(1) {
         printf("11\r\n");
